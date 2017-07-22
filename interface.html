@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)file:///home/itsuncheng/Desktop/interface.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+
+table { border-collapse:collapse; padding: "5px"}
+
+th, td {
+    text-align: left;
+    padding: 3px
+    width: 26%
+}
+
+.a {border-bottom: 3px solid #000; }
+.b {border: 2px solid black}
+.c{border: 2px solid black}
+.d{border-right: 2px solid black}
+
+
+</style>
+</head>
+
+<body>
+
+<table style="width:40%">
+  <thead style="border-bottom: 3px solid #000; padding: 5px">
+       <tr>
+            <th>照会单位 <input type="text" size="13px"></th>
+            <th>照会人 <input type="text" size="13px"></th>
+            <th>当天日期<input type="text" size="13px"></th>
+       </tr>
+  </thead>
+  <tbody>
+    <tr id="a1"><td>姓名:陈</td><td>性别：女</td></tr>
+
+    <tr>
+      <td>身高:<span style="display:inline-block; width: 16px;"></span><input type="text" size="13px"></td>
+      <td>体重:<span style="display:inline-block; width: 16px;"></span><input type="text" size="13px"></td>
+      <td>BMI:<span style="display:inline-block; width: 30px;"></span><input type="text" size="13px"></td>
+    </tr>
+    <tr class="a" style="border-bottom: 3px solid #000; padding: 5px">
+      <td>肝功能:<input type="text" size="13px"></td>
+      <td>肾功能:<input type="text" size="13px" <="" td="">
+      </td><td>管灌:<span style="display:inline-block; width: 28px;"></span><input type="text" size="13px"></td>
+    </tr>
+
+
+  </tbody>
+</table>
+
+<span id="a2">医师姓名: 王   处方日期: 2008/05/10</span>
+
+<table style="width:40%; border: 2px solid black">
+
+  <tbody style="border: 2px solid black">
+    <tr class="c" id="a3"><td></td><td class="c" colspan="3">VitaminA</td><td class="c" colspan="3">VitaminB</td></tr>
+    <tr class="c" id="a4"><td class="c">剂量用法:</td><td colspan="1">每天四次</td><td colspan="1">每次一滴</td><td class="d" colspan="1">双眼用</td><td colspan="1">每天两次</td><td colspan="1">每次两滴</td><td class="d" colspan="1">单眼用</td></tr>
+    <tr class="c" id="a5">
+      <td class="c">分级:</td>
+      <td class="c" colspan="3"></td>
+      <td colspan="2"></td>
+      <td></td>
+      <td></td>
+
+    </tr>
+    <tr class="c" id="a6">
+      <td class="c">药品相关<br>问题<br>交互作用<br>评估：</td>
+      <td class="c" colspan="3"></td>
+      <td colspan="2"></td>
+      <td></td>
+      <td></td>
+
+
+
+    </tr>
+  </tbody>
+</table>
+
+药师建议内容:
+<br>
+<textarea rows="9" cols="58"></textarea>
+列印日期：
+<br>
+
+<table style="width:40%">
+  <thead style="border-bottom: 3px solid #000; padding: 5px">
+       <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+       </tr>
+  </thead>
+  <tbody>
+
+  </tbody>
+</table>
+医事人员评估回复：
+<br>
+<textarea rows="9" cols="58"></textarea>
+日期：
+
+
+
+
+<script>
+var arr = [['陈',0],['王','2008/05/10'],[['VitaminA','VitaminA','每天四次','每次一滴','双眼用'],['VitaminB','VitaminB','每天两次','每次两滴','单眼用']]];
+var index = 0;
+var gender="";
+if(arr[0][1]==0)
+  gender = "女";
+else
+  gender = "男";
+
+var str1 = "<td>姓名:"+arr[0][0]+"</td>"+"<td>性别："+gender+"</td>";
+
+document.getElementById("a1").innerHTML=str1;
+
+var str2 = "<td>医师姓名: "+arr[1][0]+" </td>"+" <td > 处方日期: "+arr[1][1]+"</td>";
+
+document.getElementById("a2").innerHTML=str2;
+var str5 = "";
+var str6 = "";
+
+for(var i=0;i<arr[2].length;i++){
+  for(var j=0;j<arr[2][i].length;j++){
+
+    if(j==0){
+      if(i==0){
+        var str3 = "";
+        str3+="<td></td>";
+      }
+      var temp = "colspan=" + String(6/arr[2].length);
+      str3 += "<td class='c'"+temp+">"+arr[2][i][j]+"</td>";
+      str5 = str3;
+    }
+    else if(j==1){
+      if(i==0){
+        var str4 = "";
+        str4+="<td class='c'>剂量用法:</td>";
+      }
+      var temp = "colspan=" + String(6/arr[2].length/3);
+      str4 += "<td "+temp+">"+arr[2][i][j+1]+"</td><td "+temp+">"+arr[2][i][j+2]+"</td><td class='d'"+temp+">"+arr[2][i][j+3]+"</td>";
+      str6 = str4;
+    }
+    else if(j==2){
+
+    }
+    else if(j==3){
+
+    }
+    else if(j==4){
+
+    }
+  }
+  document.getElementById("a3").innerHTML=str5;
+  document.getElementById("a4").innerHTML=str6;
+}
+
+
+</script>
+
+
+</body></html>
