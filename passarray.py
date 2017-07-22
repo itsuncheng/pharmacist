@@ -109,5 +109,6 @@ def returnarray():
         print('Error:')
         print(e)
 
+    return scanobject
 
 # returnarray()
