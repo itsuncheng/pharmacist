@@ -79,7 +79,6 @@ def returnarray():
                 elif index == 6:
                     for i in range(0, len(result) - 1):
                         if(result[i:i+1] == ","):
-                            print("True!!!" + str(i))
                             breakindex = i
                             break
                     a2.append(result[0:breakindex])
